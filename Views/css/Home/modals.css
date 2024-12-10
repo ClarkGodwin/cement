@@ -1,0 +1,173 @@
+#modal{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        font-size: 17px;
+        background-color: #00000043;
+        z-index: 2;
+        display: none;
+}
+
+#modal div{
+        width: 75%;
+        background-color: white;
+        padding: 30px 15px;
+        border-radius: 20px;
+        margin: 16% auto 0;
+        color: var(--text-color);
+        position: relative;
+}
+
+#modal div:last-of-type{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 75%;
+}
+
+#modal svg{
+        width: 15px;
+        height: 15px;
+        padding: 4px;
+        fill: blue;
+        border-radius: 50%;
+        border: 1px solid blue;
+        position: absolute;
+        top: 10px;
+        right: 5%;
+}
+
+#modal svg:hover{
+        background-color: blue;
+        fill: white;
+        border: 1px solid transparent;
+        transition: .5s;
+}
+
+#modal div form button{
+        font-family: 'Wittgenstein';
+}
+
+#modal form{
+        display: flex;
+        flex-direction: column;
+}
+
+#modal form label{
+        font-size: 15px;
+        font-family: 'Raleway';
+        margin-bottom: 3px;
+}
+
+#modal div form input, select{
+        font-size: 13px;
+        padding: 5px 10px;
+        border: 1px solid var(--border-form);
+        border-radius: 10px;
+        color: var(--text-color);
+        margin-bottom: 10px;
+        background-color: var(--input);
+        font-family: 'Wittgenstein';
+        font-weight: bold;
+        outline: none;
+}
+
+
+#modal div form input:focus, select:focus{
+        border: 1px solid blue;
+}
+
+#modal div form button{
+        padding: 10px 0;
+        background-color: blue;
+        border-radius: 10px;
+        color: white;
+        margin: 10px 0;
+        border: none;
+        font-size: 15px;
+        font-family: 'Roboto';
+}
+
+#modal div section{
+        margin: 0;
+        padding: 0;
+        background-color: white;
+}
+
+#modal div section span{
+        margin: 0;
+        padding: 0 5px;
+        display: grid;
+        grid-template-columns: 22% 78%;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border-bottom: 2px solid var(--border-form);
+}
+
+#modal div section span h2{
+        font-family: 'Raleway';
+        font-weight: bolder;
+        color: blue;
+        font-size: 16px;
+}
+
+#modal div section span text{
+        font-family: 'Wittgenstein';
+        color: var(--text-color);
+        font-weight: 400;
+        font-size: 13px;
+}
+
+@media only screen and (min-width: 576px){
+        #modal div{
+                width: 70%;
+                margin: 20% auto 0;
+                padding: 30px;
+        }
+        #modal div svg{
+                width: 20px;
+                height: 20px;
+                padding: 7px;
+        }
+        #modal div form label{
+                font-size: 18px;
+        }
+        #modal div form input, select{
+                font-size: 14px;
+                padding: 10px;
+        }
+        #modal div form button{
+                padding: 17px 0;
+                margin: 20px 0;
+        }
+        #modal div form button{
+                font-size: 16px;
+        }
+        #modal div section span{
+                grid-template-columns: 11% 89%;
+        }
+        #modal div section span h2{
+                font-size: 20px;
+        }
+        #modal div section span text{
+                font-size: 16px;
+        }
+}
+
+@media only screen and (min-width: 960px){
+        #modal div{
+                margin: 7% auto 0;
+                width: 50%;
+        }
+}
+
+@media only screen and (min-width: 1440px){
+        #modal div{
+                width: 653px;
+                margin: 4% auto 0;
+        }
+        #modal div section span{
+                grid-template-columns: 10% 90%;
+        }
+}

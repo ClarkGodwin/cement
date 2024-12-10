@@ -1,0 +1,139 @@
+table{
+        margin-bottom: 7%;
+        width: 100%;
+}
+
+caption{
+        color: var(--purple);
+        font-family: 'Raleway';
+        font-weight: 900;
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: 2%;
+}
+
+table, td, th{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.212);
+        border-collapse: collapse;
+}
+
+td, th{
+        line-height: 50px;
+        text-align: center;
+}
+
+th{
+        font-size: 13px;
+        font-family: 'Raleway';
+        font-weight: 900;
+}
+
+td{
+        font-size: 13px;
+}
+
+td button{
+        border-radius: 10px;
+        border: none;
+        padding: 10px 5px;
+        width: 75px;
+        font-size: 12px;
+        font-weight: 900;
+        color:white; 
+        cursor: pointer;
+}
+
+td button:nth-child(1){
+        background-color: var(--green);
+}
+
+td button:nth-child(2){
+        background-color: var(--yellow);
+}
+
+td button:nth-child(3){
+        background-color: var(--red);
+}
+
+.modal{
+        width: 100%;
+        height: 100vh;
+        background-color: var(--back);
+        position: fixed;
+        top: 0;
+        left: 0;
+}
+
+.modal div{
+        margin: 3% auto;
+        width: 80%;
+}
+
+.hide_modal{
+        display: none;
+}
+
+.display_modal{
+        display: block;
+}
+
+@media only screen and (min-width: 636px){
+        caption{
+                font-size: 30px;
+        }
+        th{
+                font-size: 16px;
+        }
+        td{
+                font-size: 15px;
+        }
+        td button{
+                width: 150px;
+                font-size: 16px;
+                padding: 10px 15px;
+        }
+}
+
+/* @media only screen and (min-width: 960px){
+        th{
+                font-size: 17px;
+        }
+        td{
+                font-size: 14px;
+        }
+        td button{
+                width: 60px;
+                font-size: 11px;
+                padding: 10px 0px;
+        }
+} */
+
+@media only screen and (min-width: 1080px){
+        caption{
+                font-size: 35px;
+        }
+        th{
+                font-size: 18px;
+        }
+        td{
+                font-size: 16px;
+        }
+        td button{
+                width: 120px;
+                font-size: 18px;
+                padding: 10px 15px;
+        }
+}
+
+@media only screen and (min-width: 1440px){
+        th{
+                font-size: 20px;
+        }
+        td{
+                font-size: 18px;
+        }
+        td button{
+                width: 150px;
+                font-size: 20px;
+        }
+}

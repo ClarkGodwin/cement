@@ -1,0 +1,411 @@
+@import url('../fonts.css');
+
+:root{
+        --blue: #191970;
+        --blue-sky: #87cefa; 
+        --aqua: #f80505; 
+        --white: #ffffff; 
+        --border-form: rgba(0,0,0,0.1);
+        --text-color: rgba(0,0,0,0.6);
+        --input: #e1dddd20; 
+        --green: #04ff00;
+        --light-green: #04ff0042;
+        --red: #ff0202;
+        --light-red: #ff020242;
+}
+
+body{
+        margin: 0;
+        padding: 0;
+        position: relative;
+}
+
+button, svg{
+        cursor: pointer;
+}
+
+header{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        background-color: var(--blue-sky);
+        border: none;
+        border-bottom: 2px solid var(--blue);
+        position: fixed;
+        top: 0;
+        z-index: 10;
+}
+
+header div:first-of-type{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        width: 90%;
+        margin: 0px auto;
+        padding-bottom: 5px;
+        position: relative;
+}
+
+header div:first-of-type span{
+        font-family: 'Akaya';
+        font-size: 27px;
+        display: flex;
+        align-items: center;
+        color: var(--blue);
+        /* font-weight: bold; */
+        transition: 1.5s ease-in-out;
+}
+
+header div:first-of-type span:hover{
+        color: var(--aqua);
+        transition: 1.5s ease-in-out;
+}
+
+header div:first-of-type ul{
+        font-size: 16px;
+        justify-content: center;
+        padding: 17px ;
+        /* display: none; */
+        row-gap: 20px;
+        flex-direction: column;
+        position: absolute;
+        top: 79%;
+        right: 5px;
+        background-color: var(--blue-sky);
+        border-radius: 10px;
+        border: 2px solid var(--blue);
+}
+
+.menu{
+        display: none;
+}
+
+.display_menu{
+        display: flex;
+        animation: display_ 1.5s ease-out;
+}
+
+.display_svg{
+        display: block;
+}
+
+.hide_svg{
+        display: none;
+}
+
+@keyframes display_{
+        from{width: 0%;}
+        50%{width: 92px;}
+        to{width: auto;}
+}
+
+@keyframes hide_{
+        from{width: auto;}
+        50%{width: 39px;}
+        to{width: 0%;}
+}
+
+header div:first-of-type ul li{
+        list-style: none;
+        font-family: 'Raleway';
+        font-weight: 500; 
+}
+
+
+header ul li a{
+        text-decoration: none;
+        transition: 700ms ease-in-out;
+        color: var(--blue);
+}
+
+header div:first-of-type ul li a:hover{
+        border-bottom: 3px solid var(--aqua);
+        padding-bottom: 5px;
+        color: var(--aqua);
+        transition: 700ms ease-in-out;
+}
+
+header div:first-of-type svg{
+        fill: var(--blue);
+        cursor: pointer;
+        width: 30px;
+        height: 40px;
+        border: 3px solid transparent;
+        padding: 0 6px;
+        border-radius: 50%;
+        /* display: none; */
+        transition: 1s ease-in-out;
+}
+
+header div:first-of-type svg:hover{
+        border: 3px solid var(--aqua);
+        border-radius: 50%;
+        fill: var(--aqua);
+        transition: 1s ease-in-out;
+}
+
+header div:last-of-type{
+        padding: 8px ;
+        bottom: -37px;
+        font-size: 16px;
+        position: absolute;
+        border-width: 2px;
+        border-style: solid;
+        left: 0;
+        width: 100%;
+        font-weight: bold;
+        font-family: 'Raleway';
+}
+
+.erase_message{
+        display: none;
+}
+
+.success_message, .error_message{
+        display: block;
+        color: var(--white);
+}
+
+.success_message{
+        border-color: var(--green);
+        background-color: var(--green);
+}
+
+.error_message{
+        border-color: var(--red);
+        background-color: var(--red);
+}
+
+section{
+        padding: 10% 15px 30px;
+        background-color: var(--blue);
+        color: var(--white);
+}
+
+section:first-of-type{
+        margin-top: 40px; 
+}
+
+section h1{
+        font-size: 22px;
+        font-family: 'Raleway';
+        text-align: center;
+        font-weight: 900;
+        color: var(--blue-sky);
+}
+
+section p{
+        font-size: 18px;
+        font-family: 'Wittgenstein';
+        margin: 0 auto;
+        width: 95%;
+}
+
+.list{
+        width: 90%;
+        margin: 0 auto;
+}
+
+#home .list{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+}
+
+#home ol li{
+        font-family: 'Wittgenstein';
+        font-size: 15px;
+}
+
+#home ol li ol li:first-of-type{
+        margin-top: 15px;
+}
+
+#home ol li ol li:last-of-type{
+        margin-top: 10px;
+}
+
+#home button{
+        width: 60%;
+        font-size: 13px;
+        margin: 15px auto 0;
+        padding: 5px 0;
+        background-color: var(--blue-sky);
+        text-align: center;
+        color: var(--blue);
+        font-weight: 900;
+        font-family: 'Raleway';
+        border: 3px solid transparent;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        transition: 1s;
+}
+
+#home button:hover{
+        color: var(--blue-sky);
+        border: 3px solid var(--blue-sky);
+        transition: 1s ease-in-out;
+}
+
+#home button::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: var(--blue);
+        transition: 1s;
+}
+
+#home button:hover::before{
+        width: 100%;
+        z-index: -1;
+}
+
+.pictures{
+        width: 85%;
+        margin: 40px auto 0;
+}
+
+.pictures img{
+        width: 100%;
+}
+
+#chatbot{
+        border: 2px solid var(--blue);
+        background-color: var(--blue-sky);
+        fill: var(--blue);
+        width: 25px;
+        padding: 7px;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        border-radius: 50%;
+        transition: 1s;
+}
+
+#chatbot:hover{
+        fill: var(--blue-sky);
+        background-color: var(--blue);
+        transition: 1s;
+        border-color: var(--blue-sky);
+}
+
+@media only screen and (min-width: 576px){
+        ::-webkit-scrollbar {
+                width: 10px;
+        }
+        body{
+                padding: 0;
+        }
+        header{
+                height: 60px;
+        }
+        header div:first-of-type{
+                margin: 0px auto;
+        }
+        header div:first-of-type span{
+                font-size: 30px;
+        }
+        header div:first-of-type ul{
+                row-gap: 30px;
+                font-size: 18px;
+                /* column-gap: 20px; */
+                top: 50px; 
+                right: 10px;
+                /* background: transparent; */
+                /* padding: 0; */
+                border: none;
+        }
+        section{
+                padding: 5% 15px 30px;
+        }
+        header div:last-of-type{
+                padding: 10px ;
+                bottom: -47px;
+                font-size: 20px;
+        }
+        #home{
+                margin-top: 60px; 
+        }
+        section h1{
+                font-size: 25px;
+        }
+        section p{
+                font-size: 20px;
+        }
+        #home .list{
+                row-gap: 25px;
+        }
+        #home ol li{
+                font-size: 18px;
+        }
+        #home button{
+                width: 40%;
+                padding: 10px 0;
+                font-size: 18px;
+        }
+        .pictures{
+                width: 80%;
+        }
+        #chatbot{
+                width: 35px;
+                bottom: 20px;
+                right: 20px;
+                padding: 10px;
+        }
+}
+
+@media only screen and (min-width: 960px){
+        header div:first-of-type span{
+                font-size: 40px;
+        }
+        header div:first-of-type ul{
+                row-gap: 35px;
+                font-size: 18px;
+        }
+        section{
+                padding: 3% 30px 70px;
+        }
+        section h1{
+                font-size: 30px;
+        }
+        section p, .list{
+                font-size: 23px;
+        }
+        #home .list{
+                row-gap: 25px;
+        }
+        #home ol li{
+                font-size: 18px;
+        }
+        #home button{
+                margin: 15px auto 0;
+                width: 350px;
+                font-size: 20px;
+        }
+}
+
+@media only screen and (min-width: 1440px){
+        header div:first-of-type{
+                width: 1400px;
+        }
+        section p{
+                width: 1300px;
+        }
+        #home button{
+                margin: 35px 13% 0;
+        }
+        .list{
+                width: 1300px;
+        }
+        .pictures{
+                width: 1000px;
+        }
+}

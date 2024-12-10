@@ -1,0 +1,175 @@
+@import url('../fonts.css');
+
+:root{
+        --background: #ebebeb; 
+        --white: #ffffff; 
+        --green: #04ff00;
+        --light-green: #04ff002d;
+        --red: #ff0202;
+        --light-red: #ff020242;
+        --green: #3cff00; 
+        --red: #ff0000;
+        --yellow: #fffb00; 
+        --purple: #ea00ff; 
+        --back: #00000043; 
+}
+
+body{
+        padding: 0;
+        margin: 0;
+        font-family: 'Wittgenstein';
+        background-color: var(--background);
+}
+
+h3{
+        color: purple;
+        font-family: 'Raleway';
+        font-size: 18px;
+}
+
+nav{
+        width: 85%;
+        height: fit-content;
+        padding: 0 10px;
+        background-color: var(--white);
+        overflow: scroll;
+        position: fixed;
+        top: 10px; 
+        left: 4%;
+        border-radius: 30px;
+        scrollbar-width: none;
+        /* -ms-overflow-style: none; */
+}
+
+nav ul{
+        /* border: 1px solid black; */
+        width: fit-content;
+        padding: 0;
+        margin: 10px auto;
+        display: flex;
+        flex-direction: row;
+        column-gap: 15px;
+}
+
+nav ul li{
+        list-style: none;
+        background-color: var(--white);
+        font-size: 16px;
+        font-family: 'Raleway';
+        /* font-weight: bold; */
+        padding: 9px;
+        color: blueviolet;
+        cursor: pointer;
+}
+
+.active{
+        background-color: aqua;
+        border-radius: 30px;
+        color: purple;
+}
+
+.content{
+        padding: 25% 5% 50px;
+}
+
+.content div{
+        background-color: var(--white);
+        border-radius: 10px;
+        padding: 10px 15px;
+}
+
+.content span{
+        background-color: var(--red);
+        color: var(--white);
+        font-family: 'Raleway';
+        font-weight: bold;
+        border-radius: 10px;
+        width: 94%;
+        padding: 10px;
+        font-size: 14px;
+        margin-bottom: 3%;
+}
+
+.erase_message{
+        display: none;
+}
+
+.success_message, .error_message{
+        display: block;
+        color: var(--white);
+}
+
+.success_message{
+        border-color: var(--green);
+        background-color: var(--green);
+}
+
+.error_message{
+        border-color: var(--red);
+        background-color: var(--red);
+}
+
+@media only screen and  (min-width: 636px){
+        h3{
+                font-size: 25px;
+        }
+        nav{
+                width: 15%;
+                height: 100vh;
+                border-radius: 0px;
+                margin: 0;
+                top: 0;
+                left: 0;
+        }
+        nav ul{
+                display: flex;
+                flex-direction: column;
+                margin: 20px auto;
+                row-gap: 10px;
+        }
+        nav ul li{
+                font-size: 16px;
+                padding: 15px 12px; 
+        }
+        .content{
+                margin-left: 15%;
+                padding: 30px 50px 50px;
+        }
+        .content div{
+                border-radius: 20px;
+                padding: 15px 30px;
+        }
+        .content span{
+                width: 97%;
+                font-size: 17px;
+        }
+}
+
+@media only screen and  (min-width: 960px){
+        nav{
+                width: 12%;
+        }
+        nav ul li{
+                font-size: 18px;
+                padding: 15px 15px; 
+        }
+        .content{
+                margin-left: 12%;
+                padding: 50px 50px 50px;
+        }
+        .content span{
+                width: 98%;
+        }
+}
+
+@media only screen and  (min-width: 1440px){
+        nav{
+                width: 144px;
+        }
+        nav ul li{
+                font-size: 20px;
+        }
+        .content{
+                margin-left: 144px; 
+        }
+}
