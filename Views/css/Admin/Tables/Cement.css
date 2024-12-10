@@ -62,11 +62,13 @@ td button:nth-child(3){
         position: fixed;
         top: 0;
         left: 0;
+        display: none;
 }
 
 .modal div{
         margin: 3% auto;
         width: 80%;
+        font-family: 'Raleway';
 }
 
 .hide_modal{
@@ -75,6 +77,25 @@ td button:nth-child(3){
 
 .display_modal{
         display: block;
+}
+
+.modal svg{
+        width: 15px;
+        height: 15px;
+        padding: 4px;
+        fill: blue;
+        border-radius: 50%;
+        border: 1px solid blue;
+        position: absolute;
+        top: 25px;
+        right: 9%;
+}
+
+.modal svg:hover{
+        background-color: blue;
+        fill: white;
+        border: 1px solid transparent;
+        transition: .5s;
 }
 
 @media only screen and (min-width: 636px){
@@ -92,21 +113,20 @@ td button:nth-child(3){
                 font-size: 16px;
                 padding: 10px 15px;
         }
+        .modal div svg{
+                width: 20px;
+                height: 20px;
+                padding: 7px;
+                top: 45px;
+                right: 9%;
+        }
 }
 
-/* @media only screen and (min-width: 960px){
-        th{
-                font-size: 17px;
+@media only screen and (min-width: 960px){
+        .modal div svg{
+                top: 52px; 
         }
-        td{
-                font-size: 14px;
-        }
-        td button{
-                width: 60px;
-                font-size: 11px;
-                padding: 10px 0px;
-        }
-} */
+}
 
 @media only screen and (min-width: 1080px){
         caption{
@@ -135,5 +155,8 @@ td button:nth-child(3){
         td button{
                 width: 150px;
                 font-size: 20px;
+        }
+        .modal div svg{
+                top: 60px; 
         }
 }

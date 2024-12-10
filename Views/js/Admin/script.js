@@ -4,10 +4,7 @@ var li = document.querySelectorAll('nav ul li'),
         content = document.querySelector('.content div'),
         link = document.querySelector('head link:last-of-type'),
         script = document.querySelector('body script:last-of-type'),
-        default_content = '<h3 id="h3">Bienvenu sur le site d\'administrateur</h3><p>Servez vous de la bar de navigation pour effectuer toutes sorte de modification aux tables de la base de donnees et/ou pour vous deconnecter</p>',
-        details_id,
-        modal = document.querySelector('.modal'),
-        details_modal = document.querySelector('.modal .details');    
+        default_content = '<h3>Bienvenu sur le site d\'administrateur</h3><p>Servez vous de la bar de navigation pour effectuer toutes sorte de modification aux tables de la base de donnees et/ou pour vous deconnecter</p>'; 
 
 for(let i=0; i < li.length; i++){
         li[i].addEventListener('click', function(event){
@@ -18,7 +15,7 @@ for(let i=0; i < li.length; i++){
                         content.innerHTML = default_content; 
                 }
                 else{
-                        page_load(li[i].innerHTML); 
+                        page_load(li[i].innerHTML, 0); 
                 }
 
                 for(let y=0; y < li.length; y++){
@@ -28,37 +25,6 @@ for(let i=0; i < li.length; i++){
                 }
         }); 
 }
-
-function page_load(page){
-        page_ = page; 
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'Tables/'+page+'.php', true); 
-
-        xhr.onreadystatechange = function(){
-                if(xhr.readyState == 4 && xhr.status == 200){
-                        var data = JSON.parse(xhr.responseText); 
-
-                        content.innerHTML = data.content; 
-                        
-                        if('link' in data){
-                                link.setAttribute('href', data.link); 
-                        }
-
-                        // dom_ajax(); 
-                        function details(id){
-                                modal.classList.remove('hide_modal'); 
-                                modal.classList.add('display_modal'); 
-                                details_modal.classList.remove('hide_modal'); 
-                                details_modal.classList.add('display_modal'); 
-                                details_id = id; 
-                        }
-                }
-        }
-
-        xhr.send(null); 
-}
-document.addEventListener('DOMContentLoaded', page_load)
 
 window.addEventListener('beforeunload', function(){
         for(let i=0; i < li.length; i++){
@@ -75,11 +41,79 @@ window.addEventListener('load', function(){
                         li[li_actual].dispatchEvent(click); 
                 }
         }
-
+        
 })
 
 
-function dom_ajax(){
-        details(details_id); 
+function page_load(page, i, action=''){
+        if(i == 0){
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'Tables/'+page+'.php', true); 
+                
+                xhr.onreadystatechange = function(){
+                        if(xhr.readyState == 4 && xhr.status == 200){
+                                var data = JSON.parse(xhr.responseText); 
+        
+                                console.log(data)
+                                content.innerHTML = data.content; 
+                                if('link' in data){
+                                        link.setAttribute('href', data.link); 
+                                }
+                                var details = document.querySelectorAll('.details'); 
+                                for(let i=0; i < details.length; i++){
+                                        let id = details[i].getAttribute('id'); 
+                                        
+                                        details[i].addEventListener('click', function(){
+                                                page_load(page, id, 'details'); 
+                                        });
+                                
+                                }
+                        }
+                }
+                
+                xhr.send(null); 
+        }
+        else{
+                if(action == 'details'){
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', 'Tables/'+page+'.php?action='+action+'&id='+i, true); 
+                        
+                        xhr.onreadystatechange = function(){
+                                if(xhr.readyState == 4 && xhr.status == 200){
+                                        var data = JSON.parse(xhr.responseText); 
+                
+                                        console.log(data)
+                                        content.innerHTML = data.content; 
+                                        if('link' in data){
+                                                link.setAttribute('href', data.link); 
+                                        }
+                
+                                        var modal = document.querySelector('.modal');
+                                                
+                                        var details = document.querySelectorAll('.details'); 
+                                        for(let i=0; i < details.length; i++){
+                                                let id = details[i].getAttribute('id'); 
+                                                
+                                                details[i].addEventListener('click', function(){
+                                                        modal.style.display = 'block';
+                                                        modal.addEventListener('click', function(){
+                                                                page_load(page, 0)
+                                                        })
+                                                        
+                                                });
+                                                details[i].dispatchEvent(click);
+                                        
+                                        }
+                                        
+                                        var close_icone = document.querySelectorAll('.modal svg');
+                                        for(let y=0; y < close_icone.length; y++){
+                                                close_icone[y].addEventListener('click', function(){
+                                                        page_load(page, 0)
+                                                }); 
+                                        }
+                                }
+                        }
+                        xhr.send(null); 
+                }
+        }
 }
-
