@@ -59,12 +59,18 @@ function page_load(page, i, action=''){
                                 if('link' in data){
                                         link.setAttribute('href', data.link); 
                                 }
-                                var details = document.querySelectorAll('.details'); 
+                                var details = document.querySelectorAll('.details'),
+                                        modifier = document.querySelectorAll('.modifier');  
+
                                 for(let i=0; i < details.length; i++){
                                         let id = details[i].getAttribute('id'); 
                                         
                                         details[i].addEventListener('click', function(){
                                                 page_load(page, id, 'details'); 
+                                        });
+                                        
+                                        modifier[i].addEventListener('click', function(){
+                                                page_load(page, id, 'modifier'); 
                                         });
                                 
                                 }
@@ -74,46 +80,42 @@ function page_load(page, i, action=''){
                 xhr.send(null); 
         }
         else{
-                if(action == 'details'){
-                        var xhr = new XMLHttpRequest();
-                        xhr.open('GET', 'Tables/'+page+'.php?action='+action+'&id='+i, true); 
-                        
-                        xhr.onreadystatechange = function(){
-                                if(xhr.readyState == 4 && xhr.status == 200){
-                                        var data = JSON.parse(xhr.responseText); 
+                function dashboard(){
+                        page_load(page, 0); 
+                }
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'Tables/'+page+'.php?action='+action+'&id='+i, true); 
                 
-                                        console.log(data)
-                                        content.innerHTML = data.content; 
-                                        if('link' in data){
-                                                link.setAttribute('href', data.link); 
-                                        }
-                
-                                        var modal = document.querySelector('.modal');
-                                                
-                                        var details = document.querySelectorAll('.details'); 
-                                        for(let i=0; i < details.length; i++){
-                                                let id = details[i].getAttribute('id'); 
-                                                
-                                                details[i].addEventListener('click', function(){
-                                                        modal.style.display = 'block';
-                                                        modal.addEventListener('click', function(){
-                                                                page_load(page, 0)
-                                                        })
-                                                        
-                                                });
-                                                details[i].dispatchEvent(click);
+                xhr.onreadystatechange = function(){
+                        if(xhr.readyState == 4 && xhr.status == 200){
+                                var data = JSON.parse(xhr.responseText); 
+        
+                                console.log(data)
+                                content.innerHTML = data.content; 
+                                if('link' in data){
+                                        link.setAttribute('href', data.link); 
+                                }
+        
+                                var modal = document.querySelector('.modal');
                                         
-                                        }
+                                var details = document.querySelectorAll('.details'); 
+                                for(let i=0; i < details.length; i++){
+                                        let id = details[i].getAttribute('id'); 
                                         
-                                        var close_icone = document.querySelectorAll('.modal svg');
-                                        for(let y=0; y < close_icone.length; y++){
-                                                close_icone[y].addEventListener('click', function(){
-                                                        page_load(page, 0)
-                                                }); 
-                                        }
+                                        details[i].addEventListener('click', function(){
+                                                modal.style.display = 'block';
+                                        });
+                                        details[i].dispatchEvent(click);
+                                
+                                }
+                                
+                                var close_icone = document.querySelectorAll('.modal svg');
+                                for(let y=0; y < close_icone.length; y++){
+                                        close_icone[y].addEventListener('click', dashboard)
                                 }
                         }
-                        xhr.send(null); 
                 }
+                xhr.send(null); 
         }
 }

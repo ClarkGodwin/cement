@@ -12,6 +12,9 @@
         --yellow: #fffb00; 
         --purple: #ea00ff; 
         --back: #00000043; 
+        --border-form: rgba(0,0,0,0.1);
+        --text-color: rgba(0,0,0,0.6);
+        --input: #e1dddd20; 
 }
 
 body{
