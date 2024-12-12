@@ -65,7 +65,7 @@
 
                 <section id="<?= $cement['name'] ?>">
                         <h1><?= strtoupper($cement['name']) ?></h1>
-                        <p><?= ucfirst($cement['description']) ?></p>
+                        <p><?= ($cement['description'] != null)? ucfirst($cement['description']):'' ?></p>
                         <div class="pictures">
                                 <img src="../../../Views/Images/buceco/logo.png" alt="i1" id="i1">
                         </img>

@@ -158,6 +158,6 @@ function page_load(page, i, action='', type_message='', value_message=''){
                 setTimeout(function(){
                         message.classList.remove(type_message); 
                         message.classList.add('erase_message'); 
-                }, 5000)
+                }, 95000)
         }
 }

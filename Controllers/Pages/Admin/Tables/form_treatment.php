@@ -22,9 +22,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$input_data['unit_price'] = intval($data['unit_price']);
 		}
 
-		$DB->updates($input_data, $id);
+		// $DB->updates($input_data, $id);
 
-		echo "L'élément avec l'id $id a été modifier avec succès";
-		// var_dump($input_data); 
+		// echo "L'élément avec l'id $id a été modifier avec succès";
+		var_dump($data['standards[]']); 
 	}
 }

@@ -36,3 +36,13 @@ create table sales(
 alter table sales add constraint fk_sales_cement foreign key(cement_id) references cement(id) on delete cascade on update cascade; 
 
 alter table sales add constraint fk_sales_standard foreign key(standard_id) references standard(id) on delete cascade on update cascade; 
+
+create table cement_standard(
+        id int unsigned not null auto_increment primary key,
+        cement_id tinyint unsigned not null,
+        standard_id smallint unsigned not null
+)engine=innodb; 
+
+alter table cement_standard add constraint fk_cement_standard_cement foreign key(cement_id) references cement(id) on delete cascade on update cascade; 
+
+alter table cement_standard add constraint fk_cement_standard_standard foreign key(standard_id) references standard(id) on delete cascade on update cascade; 

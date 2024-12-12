@@ -96,6 +96,12 @@ class Database{
                 }
         }
 
+        public function inserts($tables){
+                foreach($tables as $table){
+                        $this->insert($table); 
+                }
+        }
+
         public function delete($id){
                 try{
                         $sql = "DELETE FROM $this->table_name WHERE id=:id";
@@ -249,5 +255,4 @@ class Database{
 }
 
 $DB_connection = new Database('cement');
-
 
