@@ -45,7 +45,7 @@ window.addEventListener('load', function(){
 })
 
 
-function page_load(page, i, action='', type_message='', message=''){
+function page_load(page, i, action='', type_message='', value_message=''){
         if(i == 0 && type_message == ''){
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', 'Tables/'+page+'.php', true); 
@@ -109,6 +109,11 @@ function page_load(page, i, action='', type_message='', message=''){
                                         details[i].dispatchEvent(click);
                                 
                                 }
+                                
+                                var close_icone = document.querySelectorAll('.modal svg');
+                                for(let y=0; y < close_icone.length; y++){
+                                        close_icone[y].addEventListener('click', dashboard)
+                                }
 
                                 var form = document.querySelector('.modal div form');
                                 
@@ -124,18 +129,20 @@ function page_load(page, i, action='', type_message='', message=''){
                                         
                                         xhr_2.onreadystatechange = function(){
                                                 if(xhr_2.readyState == 4 && xhr_2.status == 200){
-                                                        var answer = JSON.parse(xhr_2.responseText); 
-                                                        page_load(page, 0, answer.type_message, answer.message); 
+                                                        // var d = xhr_2.responseText; 
+                                                        // page_load(page, 0, '', 'error_message', d); 
+                                                        var answer = xhr_2.responseText; 
+                                                        if(answer.includes("succès")){
+                                                                page_load(page, 0, '', 'success_message', answer); 
+                                                        }
+                                                        else{
+                                                                page_load(page, 0, '', 'error_message', answer)
+                                                        }
                                                 }
                                         }
 
                                         xhr_2.send(JSON.stringify(data)); 
                                 })
-                                
-                                var close_icone = document.querySelectorAll('.modal svg');
-                                for(let y=0; y < close_icone.length; y++){
-                                        close_icone[y].addEventListener('click', dashboard)
-                                }
                         }
                 }
                 xhr.send(null); 
@@ -146,6 +153,7 @@ function page_load(page, i, action='', type_message='', message=''){
                 var message = document.querySelector('#message'); 
                 message.classList.remove('erase_message'); 
                 message.classList.add(type_message); 
+                message.innerHTML = value_message; 
 
                 setTimeout(function(){
                         message.classList.remove(type_message); 

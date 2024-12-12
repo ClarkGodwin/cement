@@ -108,6 +108,18 @@ class Database{
                 }
         }
 
+        public function delete_with_column($column_name, $column_value){
+                try{
+                        $sql = "DELETE FROM $this->table_name WHERE $column_name=:column_value";
+                        $stmt = $this->pdo->prepare($sql); 
+                        $stmt->bindParam(":column_value", $column_value); 
+                        $stmt->execute(); 
+                }
+                catch(PDOException $e){
+                        echo "Connection Error: ". $e->getMessage();
+                }
+        }
+
         public function update($column_name, $column_value, $id){
                 try{
                         $sql = "UPDATE $this->table_name SET $column_name=:column_value WHERE id=:id"; 
@@ -122,11 +134,11 @@ class Database{
                 }
         }
 
-        public function updates($column_names, $column_values, $id){
-                if(count($column_names) == count($column_values)){
-                        for($i=0; $i < count($column_names); $i++){
-                                $this->update($column_names[$i], $column_values[$i], $id); 
-                        }
+        public function updates($columns, $id){
+                $column_names = array_keys($columns);
+                $column_values = array_values($columns);
+                for($i=0; $i < count($column_names); $i++){
+                        $this->update($column_names[$i], $column_values[$i], $id); 
                 }
         }
 

@@ -1,0 +1,10 @@
+2024-12-11 23:52:42.564 [error] Error: Unable to retrieve mac address (unexpected format)
+    at F7 (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:49:26984)
+    at T7 (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:49:27825)
+    at async file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:49:27742
+    at async B6 (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:72:104456)
+    at async H6 (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:72:104720)
+    at async Promise.all (index 0)
+    at async Du.startup (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:81:5650)
+    at async R3.a (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:111:34559)
+2024-12-11 23:52:42.806 [info] update#setState idle

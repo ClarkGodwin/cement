@@ -1,0 +1,13 @@
+2024-12-11 23:53:14.911 [error] Error: Unable to retrieve mac address (unexpected format)
+    at F7 (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:49:26984)
+    at T7 (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:49:27825)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:49:27742
+    at async B6 (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:72:104456)
+    at async H6 (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:72:104720)
+    at async Promise.all (index 0)
+    at async Du.startup (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:81:5650)
+    at async R3.a (file:///usr/share/code/resources/app/out/vs/code/electron-main/main.js:111:34559)
+2024-12-11 23:53:15.161 [info] update#setState idle
+2024-12-11 23:53:17.481 [error] [UtilityProcessWorker]: terminated unexpectedly with code 18446744072948296000, signal: unknown
+2024-12-11 23:53:17.997 [info] Extension host with pid 3075 exited with code: 0, signal: unknown.
