@@ -17,7 +17,7 @@
                 </ul>
         </nav>
         <section class="content">
-                <span class="erase_message">L'element a ete modifie avec succes</span>
+                <span class="erase_message" id="message">L'element a ete modifie avec succes</span>
                 <div>
                        <?= $content ?> 
                 </div>
